@@ -1,8 +1,10 @@
-package org.compiere.model;
+package za.co.ntier.component;
 
 import java.sql.ResultSet;
 
 import org.adempiere.base.IModelFactory;
+import org.compiere.model.MMatchSetup;
+import org.compiere.model.PO;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 
@@ -10,10 +12,10 @@ import org.compiere.util.Env;
  * @author ngordon
  * Date: 15 Sep 2014
  */
-public class DazzleModelFactory implements IModelFactory {
+public class nTierModelFactory implements IModelFactory {
 
 	/** Logger */
-	private static CLogger log = CLogger.getCLogger(DazzleModelFactory.class);
+	private static CLogger log = CLogger.getCLogger(nTierModelFactory.class);
 
 	@Override
 	public Class<?> getClass(String tableName) {
