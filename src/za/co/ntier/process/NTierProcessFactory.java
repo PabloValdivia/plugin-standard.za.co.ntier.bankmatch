@@ -1,4 +1,4 @@
-package org.compiere.model;
+package za.co.ntier.process;
 
 import org.adempiere.base.IProcessFactory;
 import org.compiere.process.ProcessCall;
@@ -12,7 +12,7 @@ import za.co.ntier.nbsm.NBSM_Proc_CreateMatcher;
  * Date: 13 Feb 2015
  * Description:	
  */
-public class DazzleProcessFactory implements IProcessFactory {
+public class NTierProcessFactory implements IProcessFactory {
 
 	@Override
 	public ProcessCall newProcessInstance(String className) {
