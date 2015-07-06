@@ -1,4 +1,4 @@
-package za.co.ntier.process;
+package za.co.ntier.component;
 
 import org.adempiere.base.IProcessFactory;
 import org.compiere.process.ProcessCall;
