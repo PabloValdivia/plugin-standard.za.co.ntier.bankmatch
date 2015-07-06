@@ -1,4 +1,4 @@
-package za.co.ntier.nbsm;
+package za.co.ntier.process;
 
 import java.util.logging.Level;
 
@@ -14,6 +14,7 @@ import org.compiere.process.SvrProcess;
 import org.compiere.util.Env;
 
 import za.co.ntier.common.NTierStringUtils;
+import za.co.ntier.nbsm.NBSM_Common;
 
 /**
  */

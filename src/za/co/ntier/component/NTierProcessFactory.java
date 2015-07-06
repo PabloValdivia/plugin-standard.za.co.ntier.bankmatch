@@ -3,8 +3,8 @@ package za.co.ntier.component;
 import org.adempiere.base.IProcessFactory;
 import org.compiere.process.ProcessCall;
 
-import za.co.ntier.nbsm.NBSM_Proc_BankStatementMatcher;
-import za.co.ntier.nbsm.NBSM_Proc_CreateMatcher;
+import za.co.ntier.process.NBSM_Proc_BankStatementMatcher;
+import za.co.ntier.process.NBSM_Proc_CreateMatcher;
 
 /**
  * (c) 2015 nTier Software Services

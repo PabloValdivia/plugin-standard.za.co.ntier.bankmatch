@@ -14,7 +14,7 @@
  * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
  * or via info@compiere.org or http://www.compiere.org/license.html           *
  *****************************************************************************/
-package za.co.ntier.nbsm;
+package za.co.ntier.process;
 
 
 import java.util.logging.Level;
@@ -28,6 +28,9 @@ import org.compiere.util.Env;
 
 import za.co.ntier.common.NTierChatUtils;
 import za.co.ntier.common.NTierStringUtils;
+import za.co.ntier.nbsm.NBSM_BankStatementMatchInfo;
+import za.co.ntier.nbsm.NBSM_BankStatementMatcher;
+import za.co.ntier.nbsm.NBSM_Common;
 
 /**
  *	Bank Statement Matching
