@@ -12,10 +12,10 @@ import org.compiere.util.Env;
  * @author ngordon
  * Date: 15 Sep 2014
  */
-public class nTierModelFactory implements IModelFactory {
+public class NTierModelFactory implements IModelFactory {
 
 	/** Logger */
-	private static CLogger log = CLogger.getCLogger(nTierModelFactory.class);
+	private static CLogger log = CLogger.getCLogger(NTierModelFactory.class);
 
 	@Override
 	public Class<?> getClass(String tableName) {
