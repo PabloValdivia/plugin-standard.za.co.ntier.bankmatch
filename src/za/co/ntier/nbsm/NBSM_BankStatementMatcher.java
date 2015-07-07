@@ -223,7 +223,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		}
 		m_payment.setDateAcct					( m_dateAcct );
 		m_payment.setDateTrx						( m_dateAcct );
-		m_payment.setPayAmt						( m_stmtAmt );
+		m_payment.setPayAmt						( m_stmtAmt.negate() );
 //			copyXMLBigDecimal					( "WriteOffAmt", false );
 		// TODO: NCG: Tidy comments
 		m_payment.setC_BankAccount_ID			( m_C_BankAccount_ID );
