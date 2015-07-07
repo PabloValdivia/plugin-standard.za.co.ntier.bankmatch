@@ -215,7 +215,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		
 		// Validate the amounts
 		if ( m_stmtAmt.compareTo( Env.ZERO) < 0 ) {
-			// Going out of the bank - so payment
+			// Going out of the bank - -ve - so payment
 			if ( MMatchSetup.ZZ_NBSM_PAYMENTTYPE_Payment.equals( 
 					m_matchSetup.getZZ_NBSM_PaymentType()) ) {
 				isCreate = true;
@@ -223,7 +223,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 				log.warning( " Incorrect sign for AP payment ");
 			}
 		} else {
-			// Coming in - so receipt
+			// Coming in - +ve - so receipt
 			if ( MMatchSetup.ZZ_NBSM_PAYMENTTYPE_Receipt.equals( 
 					m_matchSetup.getZZ_NBSM_PaymentType()) ) {
 				isCreate = true;
