@@ -40,12 +40,18 @@ public class MMatchSetup extends X_ZZ_NBSM_MatchSetup implements
 	/**
 	 * Get exact match
 	 */
-	public static MMatchSetup getMatchSetupExact(Properties ctx, String trxName, int C_BankAccount_ID, 
+	public static MMatchSetup getMatchSetup(Properties ctx, String trxName, int C_BankAccount_ID, 
 			String matchText) {
 		if ( matchText == null ) {
 			matchText = "";
 		}
-		final String whereClause = " AD_Client_ID=? and c_bankaccount_id=? and trim(zz_nbsm_matchtext)=? ";
+		if ( !matchText.startsWith("%") ) {
+			matchText = "%" + matchText;
+		}
+		if ( !matchText.endsWith("%") ) {
+			matchText = matchText + "%";
+		}
+		final String whereClause = " AD_Client_ID=? and c_bankaccount_id=? and trim(upper(zz_nbsm_matchtext)) like upper(?) ";
 		MMatchSetup retValue = new Query(
 				ctx, MMatchSetup.Table_Name, whereClause,
 				trxName)

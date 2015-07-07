@@ -82,7 +82,7 @@ public class NBSM_Proc_CreateMatcher extends SvrProcess
 	private void showQE() {
 		
 		// Get existing record by match text
-		MMatchSetup matchSetup = MMatchSetup.getMatchSetupExact(
+		MMatchSetup matchSetup = MMatchSetup.getMatchSetup(
 				getCtx(), get_TrxName(), 
 				m_bsLine.getC_BankStatement().getC_BankAccount_ID(), 
 				m_bsLine.getDescription());

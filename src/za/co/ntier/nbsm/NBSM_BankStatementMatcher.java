@@ -123,7 +123,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 	private NBSM_BankStatementMatchInfo doMatch(String textToMatch) {
 		
 		// Find the match record
-		m_matchSetup = MMatchSetup.getMatchSetupExact(m_ctx, m_trxName, m_C_BankAccount_ID, textToMatch );
+		m_matchSetup = MMatchSetup.getMatchSetup(m_ctx, m_trxName, m_C_BankAccount_ID, textToMatch );
 //		m_matchSetup = matchSetupMap.get( textToMatch );
 		if ( m_matchSetup == null ) {
 			return null;
