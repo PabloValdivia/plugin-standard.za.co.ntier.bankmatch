@@ -175,12 +175,12 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 			}
 		}
 		if ( MMatchSetup.ZZ_NBSM_MATCHACTION_CreatePayment.equals( 
-				m_matchSetup.getZZ_NBSM_MatchAction() )) {
-			info.addChatText("Create payment: ");
+			m_matchSetup.getZZ_NBSM_MatchAction() )) {
+//			info.addChatText("Create payment: ");
 			createPayment( );
 			if ( m_payment != null) {
 				info.addChatText(
-						String.format("Payment created. Document no: '%s', Amount: %s", 
+						String.format("Create payment: Payment created. Document no: '%s', Amount: %s", 
 								m_payment.getDocumentNo(), 
 								m_payment.getPayAmt() ));
 			}
@@ -209,7 +209,33 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 				
 	}
 	
-	private AResult createPayment() {
+	private void createPayment() {
+		
+		boolean isCreate = false;
+		
+		// Validate the amounts
+		if ( m_stmtAmt.compareTo( Env.ZERO) < 0 ) {
+			// Going out of the bank - so payment
+			if ( MMatchSetup.ZZ_NBSM_PAYMENTTYPE_Payment.equals( 
+					m_matchSetup.getZZ_NBSM_PaymentType()) ) {
+				isCreate = true;
+			} else {
+				log.warning( " Incorrect sign for AP payment ");
+			}
+		} else {
+			// Coming in - so receipt
+			if ( MMatchSetup.ZZ_NBSM_PAYMENTTYPE_Receipt.equals( 
+					m_matchSetup.getZZ_NBSM_PaymentType()) ) {
+				isCreate = true;
+			} else {
+				log.warning( " Incorrect sign for AP payment ");
+			}
+		}
+		
+		if ( !isCreate ) {
+			return;
+		}
+		
 		// TODO: NCG: Review exception handling
 		m_payment = new MPayment(m_ctx, 0,  m_trxName);
 		
@@ -283,8 +309,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 //				addInfo("Payment has been created and successfully completed.");
 		
 		
-			
-		return null;
+		return;
 		
 	}
 	
