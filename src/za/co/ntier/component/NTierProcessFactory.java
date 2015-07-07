@@ -18,7 +18,7 @@ public class NTierProcessFactory implements IProcessFactory {
 	public ProcessCall newProcessInstance(String className) {
 		if ("org.compiere.process.BankStatementMatcher".equals(className))
 			return new NBSM_Proc_BankStatementMatcher();
-		if ("za.co.ntier.nbsm.NBSM_Proc_CreateMatcher".equals(className))
+		if ("za.co.ntier.process.NBSM_Proc_CreateMatcher".equals(className))
 			return new NBSM_Proc_CreateMatcher();
 		return null;
 	}
