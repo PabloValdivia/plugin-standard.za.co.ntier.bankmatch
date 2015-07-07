@@ -1,6 +1,7 @@
 package org.compiere.model;
 
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Properties;
 
 import org.compiere.util.Env;
@@ -37,28 +38,35 @@ public class MMatchSetup extends X_ZZ_NBSM_MatchSetup implements
 //		super.setZZ_NBSM_MatchText(ZZ_NBSM_MatchText);
 //	}
 
+	// TODO: NCG: rename paramter here from matchText -> statementLineText
 	/**
-	 * Get exact match
+	 * Find first match setup record which would match with the supplied line text
 	 */
 	public static MMatchSetup getMatchSetup(Properties ctx, String trxName, int C_BankAccount_ID, 
-			String matchText) {
-		if ( matchText == null ) {
-			matchText = "";
+			String statementLineText) {
+		if ( statementLineText == null ) {
+			statementLineText = "";
 		}
-		if ( !matchText.startsWith("%") ) {
-			matchText = "%" + matchText;
+		statementLineText = statementLineText.trim().toUpperCase();
+		// Get all the Match setup records
+		List<MMatchSetup> list = new Query(ctx, 
+				MMatchSetup.Table_Name,
+				"C_BankAccount_ID=?", trxName)
+				.setOrderBy( " Line ")
+				.setParameters( C_BankAccount_ID )
+				.list();
+
+		for (MMatchSetup rec: list ) {
+			String matchText = rec.getZZ_NBSM_MatchText();
+			if ( matchText == null ) {
+				matchText = "";
+			}
+			matchText = matchText.trim().toUpperCase();
+			if ( statementLineText.contains( matchText )) {
+				return rec;
+			}
 		}
-		if ( !matchText.endsWith("%") ) {
-			matchText = matchText + "%";
-		}
-		final String whereClause = " AD_Client_ID=? and c_bankaccount_id=? and trim(upper(zz_nbsm_matchtext)) like upper(?) ";
-		MMatchSetup retValue = new Query(
-				ctx, MMatchSetup.Table_Name, whereClause,
-				trxName)
-			.setParameters
-				( Env.getAD_Client_ID(ctx), C_BankAccount_ID, matchText.trim())
-			.firstOnly();
-		return retValue;
+		return null;
 	}
 
 	@Override
