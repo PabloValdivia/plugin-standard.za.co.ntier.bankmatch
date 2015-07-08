@@ -250,28 +250,16 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		m_payment.setDateAcct					( m_dateAcct );
 		m_payment.setDateTrx						( m_dateAcct );
 		m_payment.setPayAmt						( m_stmtAmt.abs() );
-//			copyXMLBigDecimal					( "WriteOffAmt", false );
 		// TODO: NCG: Tidy comments
 		m_payment.setC_BankAccount_ID			( m_C_BankAccount_ID );
 //			if ( ! m_po.getC_BankAccount().isActive() ) {
 //				throw new AdempiereException( String.format("Bank Account is inactive" ) );
 //			}
 		
-//			m_po.setDocumentNo( iEWorksKey );
+//			m_po.setDocumentNo( thedocumentno );
 		
-//		if ( MMatchSetup.ZZ_NBSM_PAYMENTTYPE_Payment.equals( 
-//				m_matchSetup.getZZ_NBSM_PaymentType() ) ) {
-//			m_isReceipt = false;
-//		} else {
-//			m_isReceipt = true;
-//		}
 		m_payment.setIsReceipt( m_isReceipt );
-		
 		m_payment.setC_Currency_ID( NTierUtils.getDefaultCurrencyID() );
-//			MPriceList pl = NTierUtils.getDefaultPriceList(getCtx(), get_TrxName() ) ;
-//			if ( pl==null ) {
-//				throw new AdempiereException( "Default price list not found ");
-//			}
 //			
 		m_payment.saveEx();
 		
