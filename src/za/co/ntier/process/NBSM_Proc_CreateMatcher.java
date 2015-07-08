@@ -4,6 +4,8 @@ import java.util.logging.Level;
 
 import org.adempiere.exceptions.AdempiereException;
 import org.adempiere.webui.apps.AEnv;
+import org.adempiere.webui.event.DialogEvents;
+import org.adempiere.webui.event.ValueChangeEvent;
 import org.adempiere.webui.grid.WQuickEntry;
 import org.adempiere.webui.session.SessionManager;
 import org.compiere.model.MBankStatementLine;
@@ -12,6 +14,8 @@ import org.compiere.model.MWindow;
 import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.Env;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
 
 import za.co.ntier.common.NTierStringUtils;
 import za.co.ntier.nbsm.NBSM_Common;
@@ -103,6 +107,17 @@ public class NBSM_Proc_CreateMatcher extends SvrProcess
 	    		final WQuickEntry vqe = new WQuickEntry (1, windowID);
 	    		vqe.loadRecord ( matchSetupID );
 	    		vqe.setVisible(true);
+	    		vqe.addEventListener(DialogEvents.ON_WINDOW_CLOSE, new EventListener<Event>() {
+	    			@Override
+	    			public void onEvent(Event event) throws Exception {
+	    				String strNull = null;
+	    				Env.setContext(Env.getCtx(), "#C_BankAccount_ID", strNull);
+	    				Env.setContext(Env.getCtx(), "#Description", strNull);
+	    				Env.setContext(Env.getCtx(), "#C_BPartner_ID", strNull);
+	    				Env.setContext(Env.getCtx(), "#C_Charge_ID", strNull);
+	    				Env.setContext(Env.getCtx(), "#IsTaxIncluded", strNull);
+	    			}
+	    		});
 	    	    SessionManager.getAppDesktop().showWindow(vqe);
 	    	}
 	    });
