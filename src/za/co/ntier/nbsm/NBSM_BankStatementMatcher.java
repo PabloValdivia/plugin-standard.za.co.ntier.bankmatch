@@ -14,7 +14,6 @@ import org.adempiere.exceptions.AdempiereException;
 import org.compiere.impexp.BankStatementMatchInfo;
 import org.compiere.impexp.BankStatementMatcherInterface;
 import org.compiere.model.MBankStatementLine;
-import org.compiere.model.MMatchSetup;
 import org.compiere.model.MPayment;
 import org.compiere.model.Query;
 import org.compiere.model.X_I_BankStatement;
@@ -26,6 +25,7 @@ import za.co.ntier.common.AResult;
 import za.co.ntier.common.NTierChatUtils;
 import za.co.ntier.common.NTierStringUtils;
 import za.co.ntier.common.NTierUtils;
+import za.co.ntier.model.MMatchSetup;
 
 //TODO: NCG: Improve comment below
 /**

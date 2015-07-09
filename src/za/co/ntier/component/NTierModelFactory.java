@@ -3,10 +3,11 @@ package za.co.ntier.component;
 import java.sql.ResultSet;
 
 import org.adempiere.base.IModelFactory;
-import org.compiere.model.MMatchSetup;
 import org.compiere.model.PO;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
+
+import za.co.ntier.model.MMatchSetup;
 
 /**
  * @author ngordon

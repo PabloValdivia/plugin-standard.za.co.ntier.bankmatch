@@ -14,10 +14,15 @@
  * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
  * or via info@compiere.org or http://www.compiere.org/license.html           *
  *****************************************************************************/
-package org.compiere.model;
+package za.co.ntier.nbsm;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+
+import org.compiere.model.I_C_BPartner;
+import org.compiere.model.I_C_BankAccount;
+import org.compiere.model.I_C_Charge;
+import org.compiere.model.MTable;
 import org.compiere.util.KeyNamePair;
 
 /** Generated Interface for ZZ_NBSM_MatchSetup

@@ -10,15 +10,17 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,    *                                                                                                                                                                                                
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *                                                                                                                                                                                                
  *****************************************************************************/  
-package org.compiere.model;
+package za.co.ntier.model;
 
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
 
+import org.compiere.model.Query;
 import org.compiere.util.Env;
 
 import za.co.ntier.common.NTierStringUtils;
+import za.co.ntier.nbsm.I_ZZ_NBSM_MatchSetup;
 
 /**
  * @author nTier Software Services - Neil Gordon - http://www.ntier.co.za
