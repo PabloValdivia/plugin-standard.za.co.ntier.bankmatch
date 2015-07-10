@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
 
 import org.adempiere.exceptions.AdempiereException;
 import org.compiere.impexp.BankStatementMatchInfo;
@@ -106,18 +107,16 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 			return null;
 		}
 		
-		log.warning("Found match for text: '" + textToMatch + "'");
+		if (log.isLoggable(Level.INFO)) log.info("Found match for text: '" + textToMatch + "'");
 		
 		if ( m_C_BPartner_ID != 0 ) {
-			// TODO: NCG: Correct the logging statements, level , etc
-			log.warning("nTierBankMatch: BP already set; will not do anything");
+			if (log.isLoggable(Level.INFO)) log.info("nTierBankMatch: BP already set; will not do anything");
 		}
 		if ( m_C_Payment_ID != 0 ) {
-			log.warning("nTierBankMatch: payment already associated with b/s line; will not do anything");
+			if (log.isLoggable(Level.INFO)) log.info("nTierBankMatch: payment already associated with b/s line; will not do anything");
 		}
 		if ( m_C_Charge_ID != 0 ) {
-			// TODO: NCG: Correct the logging statements, level , etc
-			log.warning("nTierBankMatch: charge already associated with b/s line; will not do anything");
+			if (log.isLoggable(Level.INFO)) log.info("nTierBankMatch: charge already associated with b/s line; will not do anything");
 		}
 		
 		// Get the match info
@@ -191,7 +190,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 					m_matchSetup.getZZ_NBSM_PaymentType()) ) {
 				isCreate = true;
 			} else {
-				log.warning( " Incorrect sign for AP payment ");
+				if (log.isLoggable(Level.INFO)) log.info( " Incorrect sign for AP payment ");
 			}
 		} else {
 			// Coming in - +ve - so receipt
@@ -199,7 +198,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 					m_matchSetup.getZZ_NBSM_PaymentType()) ) {
 				isCreate = true;
 			} else {
-				log.warning( " Incorrect sign for AP payment ");
+				if (log.isLoggable(Level.INFO)) log.info( " Incorrect sign for AP payment ");
 			}
 		}
 		
@@ -290,7 +289,7 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 			.list();
 		
 		if ( list.size() <=0 ) {
-			log.warning("nTierBankMatch: no matching payments found");
+			if (log.isLoggable(Level.INFO)) log.info("nTierBankMatch: no matching payments found");
 			return -1;
 		}
 		
@@ -303,12 +302,12 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 				
 				if ( id > -1 ) {
 					// There is another payment with the same amount - therefore no match
-					log.warning("nTierBankMatch: There is more than 1 potential matching payment - therefore no match");
+					if (log.isLoggable(Level.INFO)) log.info("nTierBankMatch: There is more than 1 potential matching payment - therefore no match");
 					return -1;
 				}
 				id = pmt.get_ID();
 			} else {
-				log.warning(
+				if (log.isLoggable(Level.INFO)) log.info(
 						String.format("nTierBankMatch: Payment '%s' linked to another bank statement line - therefore no match",
 								pmt));
 			}

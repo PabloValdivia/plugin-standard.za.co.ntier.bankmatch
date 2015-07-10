@@ -41,7 +41,6 @@ public class MMatchSetup extends X_ZZ_NBSM_MatchSetup implements
 		super(ctx, rs, trxName);
 	}
 	
-	// TODO: NCG: rename paramter here from matchText -> statementLineText
 	/**
 	 * Find first match setup record which would match with the supplied line text
 	 */
