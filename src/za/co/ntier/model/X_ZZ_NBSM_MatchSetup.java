@@ -25,7 +25,6 @@ import org.compiere.model.MTable;
 import org.compiere.model.PO;
 import org.compiere.model.POInfo;
 
-import za.co.ntier.nbsm.I_ZZ_NBSM_MatchSetup;
 
 /** Generated Model for ZZ_NBSM_MatchSetup
  *  @author iDempiere (generated) 

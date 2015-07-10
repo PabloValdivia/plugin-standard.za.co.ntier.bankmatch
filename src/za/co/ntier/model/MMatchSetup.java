@@ -19,7 +19,6 @@ import java.util.Properties;
 import org.compiere.model.Query;
 
 import za.co.ntier.common.NTierStringUtils;
-import za.co.ntier.nbsm.I_ZZ_NBSM_MatchSetup;
 
 /**
  * @author nTier Software Services - Neil Gordon - http://www.ntier.co.za
