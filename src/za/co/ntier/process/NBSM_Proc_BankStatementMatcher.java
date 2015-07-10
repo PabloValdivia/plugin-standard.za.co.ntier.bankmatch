@@ -1,19 +1,3 @@
-/******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2006 ComPiere, Inc. All Rights Reserved.                *
- * This program is free software; you can redistribute it and/or modify it    *
- * under the terms version 2 of the GNU General Public License as published   *
- * by the Free Software Foundation. This program is distributed in the hope   *
- * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied *
- * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
- * See the GNU General Public License for more details.                       *
- * You should have received a copy of the GNU General Public License along    *
- * with this program; if not, write to the Free Software Foundation, Inc.,    *
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
- * For the text or an alternative of this public license, you may reach us    *
- * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
- * or via info@compiere.org or http://www.compiere.org/license.html           *
- *****************************************************************************/
 package za.co.ntier.process;
 
 
@@ -21,7 +5,6 @@ import java.util.logging.Level;
 
 import org.compiere.model.MBankStatement;
 import org.compiere.model.MBankStatementLine;
-import org.compiere.model.X_I_BankStatement;
 import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.Env;
@@ -37,6 +20,9 @@ import za.co.ntier.nbsm.NBSM_Common;
  *	
  *  @author Jorg Janke
  *  @version $Id: BankStatementMatcher.java,v 1.3 2006/09/25 00:59:41 jjanke Exp $
+ *  
+ *  @author Neil Gordon
+ *  Modified for NBSM
  */
 public class NBSM_Proc_BankStatementMatcher extends SvrProcess
 {
@@ -93,7 +79,6 @@ public class NBSM_Proc_BankStatementMatcher extends SvrProcess
 				bsl.setC_Charge_ID(info.getC_Charge_ID());
 				bsl.setTrxAmt( Env.ZERO );
 				bsl.setChargeAmt( bsl.getStmtAmt() );
-				// TODO: NCG: Improve comment below
 				// nTier: Customized column: only set if exists
 				if ( bsl.get_ColumnIndex("IsTaxIncluded") >= 0 ) {
 					bsl.set_ValueOfColumn("IsTaxIncluded", info.isTaxIncluded());

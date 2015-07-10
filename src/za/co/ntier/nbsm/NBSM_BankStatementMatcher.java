@@ -5,9 +5,7 @@ package za.co.ntier.nbsm;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 import org.adempiere.exceptions.AdempiereException;
@@ -21,21 +19,14 @@ import org.compiere.process.DocAction;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 
-import za.co.ntier.common.AResult;
 import za.co.ntier.common.NTierChatUtils;
 import za.co.ntier.common.NTierStringUtils;
 import za.co.ntier.common.NTierUtils;
 import za.co.ntier.model.MMatchSetup;
 
-//TODO: NCG: Improve comment below
 /**
- * @author Simbarashe Musabaike
- * Original author, for Megafreight 
- * 
- * @author Neil Gordon NCG
- * Modified, for NBSM
+ * @author Neil Gordon
  * 2015/06/25
- *
  */
 public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface {
 
@@ -53,7 +44,6 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 	private NBSM_BankStatementMatchInfo info;
 	private MMatchSetup m_matchSetup;
 	private MPayment m_payment;
-//	private int C_BPartner_ID;
 	private int m_AD_Org_ID;
 	private Timestamp m_dateAcct;
 	private BigDecimal m_stmtAmt;
@@ -61,20 +51,8 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 	private boolean m_isReceipt;
 	private String m_bankStatementName = "";
 	private int m_bankStatementLineNo = 0;
-//	private MBankStatementLine m_bsl;
-//	private int m_set_C_Charge_ID = 0;
 	
 	public NBSM_BankStatementMatcher() {
-//		super();
-		
-//		String whereClause = " isActive='Y' AND AD_Client_ID = 1000000 ";
-//		String whereClause = " isActive='Y' ";
-//		int[] m_Mapping_ID = PO.getAllIDs(MMatchSetup.Table_Name, whereClause, null);
-//		
-//		for (int i : m_Mapping_ID){
-//			MMatchSetup matchSetup = new MMatchSetup(Env.getCtx(), i, null);
-//			matchSetupMap.put(matchSetup.getZZ_NBSM_MatchText(), matchSetup);
-//		}
 	}
 	
 	/* (non-Javadoc)
@@ -124,7 +102,6 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		
 		// Find the match record
 		m_matchSetup = MMatchSetup.getMatchSetup(m_ctx, m_trxName, m_C_BankAccount_ID, textToMatch );
-//		m_matchSetup = matchSetupMap.get( textToMatch );
 		if ( m_matchSetup == null ) {
 			return null;
 		}
@@ -185,12 +162,6 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 								m_payment.getPayAmt() ));
 			}
 		}
-//		if ( MMatchSetup.ZZ_NBSM_MATCHACTION_GenerateCharge.equals( 
-//				m_matchSetup.getZZ_NBSM_MatchAction() )) {
-//			info.setC_Charge_ID		( m_matchSetup.getC_Charge_ID() );
-////			info.setChargeAmt		( m_stmtAmt );
-//			info.setIsTaxIncluded	( m_matchSetup.isTaxIncluded() );
-//		}
 		if ( MMatchSetup.ZZ_NBSM_MATCHACTION_MatchOpenPaymentByAmount.equals( 
 				m_matchSetup.getZZ_NBSM_MatchAction() )) {
 			info.addChatText("Match open payment by amount");
@@ -250,7 +221,6 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		m_payment.setDateAcct					( m_dateAcct );
 		m_payment.setDateTrx						( m_dateAcct );
 		m_payment.setPayAmt						( m_stmtAmt.abs() );
-		// TODO: NCG: Tidy comments
 		m_payment.setC_BankAccount_ID			( m_C_BankAccount_ID );
 //			if ( ! m_po.getC_BankAccount().isActive() ) {
 //				throw new AdempiereException( String.format("Bank Account is inactive" ) );
@@ -293,9 +263,6 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 					m_payment.getDocStatus(), docAction, m_payment.getProcessMsg() );
 			throw new AdempiereException( msg );
 		}
-		
-//				addInfo("Payment has been created and successfully completed.");
-		
 		
 		return;
 		
@@ -350,11 +317,6 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		
 		return id;
 		
-//		MPayment payment = list.get(0);
-//		return payment.get_ID();
-//		MPayment[] retValue = new MPayment[list.size()];
-//		list.toArray(retValue);
-//		return retValue;
 	}
 	
 	private boolean isPaymentAlreadyLinkedToBankStatementLine(MPayment pmt) {
@@ -369,26 +331,4 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		}
 	}
 	
-//	private int[] searchIDs(String description) {
-//		
-//		int[] ids = new int[2];
-//		if (description != null)
-//		{
-//			for (Map.Entry<String, int[]> entry : matchMap.entrySet()){
-//				
-//				String cValue = entry.getKey();//child
-//				int[] pValue = entry.getValue();//parent
-//				
-//				if (description.contains(cValue)){
-//					ids[0] = pValue[0];// BPartner_ID
-//					ids[1] = pValue[1];// Charge_ID
-//					return ids;
-//				}
-//			
-//			}		
-//		
-//		}
-//		
-//		return ids;	
-//}
 }

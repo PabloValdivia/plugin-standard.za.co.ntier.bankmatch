@@ -39,7 +39,6 @@ import org.compiere.model.MRefList;
 import org.compiere.model.MTable;
 import org.compiere.model.MTaxCategory;
 import org.compiere.model.MUser;
-import org.compiere.model.PO;
 import org.compiere.model.Query;
 import org.compiere.model.X_AD_Reference;
 import org.compiere.model.X_C_Country;
@@ -54,8 +53,6 @@ import org.zkoss.zk.ui.Component;
  * @author NCG
  * Date: 18 Mar 2014
  * Description:	General utility classes
- * NB: Sync with Plugin
- * FIXME: Make this shared library code, or move all code from fragment into plugin
  */
 public class NTierUtils {
 

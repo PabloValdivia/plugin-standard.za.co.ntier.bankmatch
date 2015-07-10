@@ -5,7 +5,6 @@ import java.util.logging.Level;
 import org.adempiere.exceptions.AdempiereException;
 import org.adempiere.webui.apps.AEnv;
 import org.adempiere.webui.event.DialogEvents;
-import org.adempiere.webui.event.ValueChangeEvent;
 import org.adempiere.webui.grid.WQuickEntry;
 import org.adempiere.webui.session.SessionManager;
 import org.compiere.model.MBankStatementLine;

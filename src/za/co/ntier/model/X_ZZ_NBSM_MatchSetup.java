@@ -20,9 +20,6 @@ package za.co.ntier.model;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import org.compiere.model.I_C_BPartner;
-import org.compiere.model.I_C_BankAccount;
-import org.compiere.model.I_C_Charge;
 import org.compiere.model.I_Persistent;
 import org.compiere.model.MTable;
 import org.compiere.model.PO;

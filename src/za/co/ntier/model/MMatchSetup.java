@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Properties;
 
 import org.compiere.model.Query;
-import org.compiere.util.Env;
 
 import za.co.ntier.common.NTierStringUtils;
 import za.co.ntier.nbsm.I_ZZ_NBSM_MatchSetup;
@@ -43,14 +42,6 @@ public class MMatchSetup extends X_ZZ_NBSM_MatchSetup implements
 		super(ctx, rs, trxName);
 	}
 	
-//	@Override
-//	public void setZZ_NBSM_MatchText(String ZZ_NBSM_MatchText) {
-//		if ( ZZ_NBSM_MatchText != null ) {
-//			ZZ_NBSM_MatchText = ZZ_NBSM_MatchText.trim();
-//		}
-//		super.setZZ_NBSM_MatchText(ZZ_NBSM_MatchText);
-//	}
-
 	// TODO: NCG: rename paramter here from matchText -> statementLineText
 	/**
 	 * Find first match setup record which would match with the supplied line text
