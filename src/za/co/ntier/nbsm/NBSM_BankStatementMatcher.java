@@ -279,6 +279,17 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 	 * and business partner, and associate with the current b/s line.
 	 */
 	private int getMatchedPaymentID() {
+		if ( m_isReceipt ) {
+			// AR Receipt - statement amt must be positive
+			if ( m_stmtAmt.compareTo( Env.ZERO ) <= 0 ) {
+				return -1;
+			}
+		} else {
+			// AP Payment - statement amt must be negative
+			if ( m_stmtAmt.compareTo( Env.ZERO ) >= 0 ) {
+				return -1;
+			}
+		}
 		String where = " c_bpartner_id = ? and isreceipt = ? and payamt = ? ";
 		List<MPayment> list = new Query(
 				m_ctx, 
