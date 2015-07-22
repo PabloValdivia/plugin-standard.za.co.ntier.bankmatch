@@ -12,7 +12,7 @@
 * These rules can then be run, either for each line, or for the bank statement as a whole.
 
 ## Source Code
-* Cloning: hg clone https://bitbucket.org/ntiersoftware/za.co.ntier.bankmatch
+* hg clone https://bitbucket.org/ntiersoftware/za.co.ntier.bankmatch
 * 2Pack: META-INF/2Pack.zip
 
 ## Development Status
@@ -21,7 +21,7 @@
 
 ## Installation
 * Backup your DB
-* Download the latest plugin jar from [the download page](https://bitbucket.org/ntiersoftware/za.co.ntier.bankmatch/downloads)
+* Download the latest binary plugin jar from [the download page](https://bitbucket.org/ntiersoftware/za.co.ntier.bankmatch/downloads)
 * Install the plugin jar via Felix Console
 
 
