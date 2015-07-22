@@ -30,7 +30,6 @@ import org.compiere.util.Env;
  * @author Neil Gordon
  * Date: 24 Feb 2015
  * Description:	Manage configurator settings
- * FIXME: Make this shared library code, or move all code from fragment into plugin
  */
 public class NTierConfigurator {
 

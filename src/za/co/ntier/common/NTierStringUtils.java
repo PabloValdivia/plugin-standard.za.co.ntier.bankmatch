@@ -25,15 +25,11 @@ import org.adempiere.exceptions.AdempiereException;
  */
 public class NTierStringUtils {
 
-	/**
-	 */
 	public static boolean isNullOrEmpty(String s) {
 		if ( (s==null) || "".equals(s.trim()) ) return true;
 		return false;
 	}
 
-	/**
-	 */
 	public static String left(String s, int length) {
 		if (s!=null) {
 			if (s.length()<=length) {
@@ -44,11 +40,6 @@ public class NTierStringUtils {
 		return s;
 	}
 	
-	// The following 4 from https://amourtan.com/2014/12/java-left-string-function-visual-basic-net/
-//	public static String left(String input, int len) {
-//        return input.substring(0, len);
-//    }
-    
     public static String right(String input, int len) {
         return input.substring(input.length() - len);
     }
@@ -106,7 +97,6 @@ public class NTierStringUtils {
 	
 	/**
 	 * Convert from Y or N to a boolean
-	 * 	Adapted from AliUtils class in Armscor project
 	 */
 	public static boolean fromYesNo(String value) throws Exception {
 		if ( ! ("N".equals(value.toUpperCase()) || "Y".equals(value.toUpperCase())) ) {
@@ -117,7 +107,6 @@ public class NTierStringUtils {
 	
 	/**
 	 * Convert from true or false to a boolean
-	 *  Adapted from AliUtils class in Armscor project
 	 */
 	public static boolean fromTrueFalse(String value) {
 		if ( ! ("FALSE".equals(value.toUpperCase()) || "TRUE".equals(value.toUpperCase())) ) {
@@ -128,7 +117,6 @@ public class NTierStringUtils {
 	
 	/**
 	 * Convert from 1 or 0 to a boolean
-	 *  Adapted from AliUtils class in Armscor project
 	 */
 	public static boolean fromOneZero(String value) throws Exception {
 		if ( ! ("0".equals(value.toUpperCase()) || "1".equals(value.toUpperCase())) ) {

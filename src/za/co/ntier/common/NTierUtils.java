@@ -65,6 +65,7 @@ import org.zkoss.zk.ui.Component;
  * @author NCG
  * Date: 18 Mar 2014
  * Description:	General utility classes
+ * TODO: NCG: Tidy code; review methods to see if should be retained in this class or relocated to another.
  */
 public class NTierUtils {
 
@@ -675,7 +676,6 @@ public class NTierUtils {
 	public static void main(String[] args) {
 		// test for coalesce
 		System.out.println(String.format("Coalesce test: %s", NTierUtils.coalesce( null, null, null, null, "a", "b")));
-		System.out.println("Temporary Export Return".toUpperCase().contains("PERMANENT"));
 	}
 	
 }

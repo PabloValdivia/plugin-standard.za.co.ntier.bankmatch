@@ -37,6 +37,7 @@ import za.co.ntier.model.MMatchSetup;
 /**
  * @author Neil Gordon
  * 2015/06/25
+ * TODO: NCG: Translations
  */
 public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface {
 
