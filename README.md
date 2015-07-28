@@ -16,7 +16,7 @@
 * 2Pack: META-INF/2Pack.zip
 
 ## Development Status
-* iDempiere 2.0
+* iDempiere 2.0 and 2.1
 * Testing
 
 ## Installation
