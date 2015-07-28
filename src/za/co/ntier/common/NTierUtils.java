@@ -536,14 +536,12 @@ public class NTierUtils {
 	}
 
 	/**
-	 * Get the default currency
+	 * Get the base currency
 	 * NCG
 	 */
 	public static int getDefaultCurrencyID() {
-		return NTierConstants.CURRENCY_ID_DEFAULT;
-// The following was unreliable
-//		int ID = Env.getContextAsInt (Env.getCtx(), "$C_Currency_ID");
-//		return ID;
+		// The base currency
+		return MClient.get(Env.getCtx()).getC_Currency_ID();
 	}
 	
 	/**
