@@ -173,16 +173,11 @@ public class NBSM_BankStatementMatcher implements BankStatementMatcherInterface 
 		}
 		if ( MMatchSetup.ZZ_NBSM_MATCHACTION_MatchOpenPaymentByAmount.equals( 
 				m_matchSetup.getZZ_NBSM_MatchAction() )) {
-			if ( m_stmtAmt.compareTo( Env.ZERO ) < 0 ) {
-				// Only match negative amount
+			
+			int id = getMatchedPaymentID();
+			if ( id>0 ) {
 				info.addChatText("Match open payment by amount");
-				int id = getMatchedPaymentID();
-				if ( id>0 ) {
-					info.setC_Payment_ID( id );
-	//				info.addChatText(
-	//						String.format(" Set payment, based on partner and statement amount")
-	//						);
-				}
+				info.setC_Payment_ID( id );
 			}
 		}
 		
