@@ -17,7 +17,7 @@
 
 ## Development Status
 * iDempiere 2.0
-* Alpha testing (early testing)
+* Testing
 
 ## Installation
 * Backup your DB
