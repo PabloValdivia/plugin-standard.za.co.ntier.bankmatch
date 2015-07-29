@@ -20,9 +20,4 @@ package za.co.ntier.common;
  */
 public class NTierConstants {
 
-	/**
-	 * ZAR 
-	 */
-	public static final int CURRENCY_ID_DEFAULT = 294;
-
 }
