@@ -1,4 +1,4 @@
-# nTier Bank Statement Matching
+# Bank Statement Matching
 
 Please see: http://wiki.idempiere.org/en/Plugin:_Bank_Statement_Matching for details on this plugin.
 
